@@ -45,9 +45,6 @@ def image_process(): #saving the image
         os.chdir('./screens')
 
 
-def print_this(this):
-    print(str(this))
-    print('that is true')
 
 def not_now(element):
     not_now = chrome_web.find_element_by_class_name(element)
