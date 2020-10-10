@@ -20,29 +20,9 @@ def connect_web_chrome(chrome_web, link, username, password):
     pw = chrome_web.find_element_by_name('password')
     pw.send_keys(password)
     sleep(1)
-    get_image()
     login = chrome_web.find_element_by_class_name('y3zKF     ')
     login.click()
 
-def get_image(): #image name
-    current_time = asctime().replace(' ', '-')
-    chrome_web.save_screenshot(f"./screens/{str(current_time.replace(':', '-'))}.png")
-
-def image_process(): #saving the image
-    cur_dir = os.getcwd()
-    os.chdir('./screens')
-    file_list = os.listdir()
-    for i in file_list:
-        new_name = i.lstrip('.png')
-        img = Image.open(i)
-        box = (55, 52, 800, 600)
-        region = img.crop(box)
-        os.chdir(cur_dir)
-        region.save(f"CROP-{new_name}.png", 'PNG')
-        new_file = f"CROP-{new_name}.png"
-        print(new_file)
-        sleep(2)
-        os.chdir('./screens')
 
 
 
@@ -73,7 +53,6 @@ def like_follow( like, follow, next):
 
     for i in enumerate(range(25)):
         sleep_time(2,7)
-        get_image()
         sleep_time(1,2)
         web1 = chrome_web.find_elements_by_xpath("//*[name()='svg'][@class='_8-yf5 '][attribute::aria-label]")
         label = web1[5].get_attribute('aria-label')
