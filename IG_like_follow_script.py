@@ -24,7 +24,7 @@ def connect_web_chrome(chrome_web, link, username, password):
     login = chrome_web.find_element_by_class_name('y3zKF     ')
     login.click()
 
-def get_image():
+def get_image(): #image name
     current_time = asctime().replace(' ', '-')
     chrome_web.save_screenshot(f"./screens/{str(current_time.replace(':', '-'))}.png")
 
